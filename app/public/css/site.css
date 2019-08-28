@@ -1,0 +1,12 @@
+#mainContent {
+    border: 1px solid red;
+    background-color:rgb(255,230,230);
+}
+
+.queueViewclass {
+    border: 1px solid red;
+}
+
+div {
+    font-size: 18px;
+}
