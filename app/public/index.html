@@ -8,7 +8,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/site.css">
 
-  </head>
+</head>
 
 <body>
 
@@ -40,9 +40,7 @@
     <div class="row">
       <div id="mainContent" class="col-md">Registration form</div>
       <div id="patientWaitingApp" class="col-md-4 queueView">
-        <div class="patientWaiting patient"
-        :class="patient.priority + 'Priority'"
-        v-for="patient in patients">
+        <div class="patientWaiting patient" v-for="patient in patients">
           Arrival:<br>
           <span class="patientName">{{ patient.lastName }}</span>,
           <span class="patientName">{{ patient.firstName }}</span><br>
