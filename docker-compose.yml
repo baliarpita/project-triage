@@ -6,10 +6,3 @@ services:
       - "8001:80"
     volumes:
       - ./app:/srv/app
-
-
-      # Configuration for docker image
-
-
-      # docker ps -> Gives list of all images
-      # docker compose up
