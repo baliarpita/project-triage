@@ -4,10 +4,11 @@
 <head>
   <meta charset="utf-8">
   <title>Project Triage</title>
-  <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+  <link rel="stylesheet" href="css/site.css">
+
+  </head>
 
 <body>
 
@@ -37,21 +38,22 @@
 
   <div class="container">
     <div class="row">
-      <div id="mainContent" class="col-sm-8">Registration form</div>
-      <div id="patientWaitingApp" class="col-sm-4 queueViewclass">
-        <div class="patientWaiting patient" v-for="patient in patients">
-          Arrival: <br>
+      <div id="mainContent" class="col-md">Registration form</div>
+      <div id="patientWaitingApp" class="col-md-4 queueView">
+        <div class="patientWaiting patient"
+        :class="patient.priority + 'Priority'"
+        v-for="patient in patients">
+          Arrival:<br>
           <span class="patientName">{{ patient.lastName }}</span>,
           <span class="patientName">{{ patient.firstName }}</span><br>
-          <span>{{ patient.dob }}</span>
-          <span>{{ patient.sexAtBirth }}</span>
+          {{ patient.sexAtBirth }} {{ patient.dob }}
         </div>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/waiting.app.js"></script>
 
 </body>
 
