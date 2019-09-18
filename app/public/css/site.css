@@ -30,3 +30,7 @@
 .lowPriority{
   border-left: 4px solid blue;
 }
+
+.table td, .table th{
+  text-align: center!important;
+}
