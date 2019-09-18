@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>My Page Title</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/site.css">
 </head>
+
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,11 +33,39 @@
 
   <div class="container">
     <div class="row">
-      <div id="mainContent" class="col-md">Registration form</div>
+      <div id="mainContent" class="col-md">
+        <h1>Registration form</h1>
+        <br><br>
+        <div id="patientRecordApp">
+          <form>
+
+          </form>
+          <table class="table">
+            <thead>
+              <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Patient GUID</th>
+                <th scope="col">Patient Firstname</th>
+                <th scope="col">Patient Lastname</th>
+                <th scope="col">Patient DOB</th>
+                <th scope="col">Patient sexAtBirth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="patient in patients">
+                <!-- <th scope="row"></th> -->
+                <td>{{patient.patientGuid}}</td>
+                <td>{{patient.firstName}}</td>
+                <td>{{patient.lastName}}</td>
+                <td>{{patient.dob}}</td>
+                <td>{{patient.sexAtBirth}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       <div id="patientWaitingApp" class="col-md-4 queueView">
-        <div class="patientWaiting patient"
-        :class="patient.priority + 'Priority'"
-        v-for="patient in patients">
+        <div class="patientWaiting patient" :class="patient.priority + 'Priority'" v-for="patient in patients">
           Arrival:<br>
           <span class="patientName">{{ patient.lastName }}</span>,
           <span class="patientName">{{ patient.firstName }}</span><br>
@@ -45,5 +77,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/waiting.app.js"></script>
+  <script src="js/patient.record.js"></script>
 </body>
+
 </html>
