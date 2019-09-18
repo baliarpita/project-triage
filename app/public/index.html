@@ -38,29 +38,36 @@
         <br><br>
 
         <div id="patientRecordApp">
-          <form>
+          <form v-on:submit.prevent="handleCreatePatientRecord">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputFirstName">Patient First Name</label>
-                <input type="text" class="form-control" id="inputFirstName" placeholder="Patient First Name">
+                <input type="text" class="form-control" id="inputFirstName" v-model="formPatient.firstName"
+                  placeholder="Patient First Name">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputLastName">Patient Last Name</label>
-                <input type="text" class="form-control" id="inputLastName" placeholder="Patient Last Name">
+                <input type="text" class="form-control" id="inputLastName" v-model="formPatient.lastName"
+                  placeholder="Patient Last Name">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputDob">Date of Birth</label>
-                <input type="date" class="form-control" id="inputDob" placeholder="YYYY-MM-DD">
+                <input type="date" class="form-control" id="inputDob" v-model="formPatient.dob"
+                  placeholder="YYYY-MM-DD">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputSexAtBirth">Gender</label>
-                <input type="text" class="form-control" id="inputSexAtBirth" placeholder="F | M">
+                <input type="text" class="form-control" id="inputSexAtBirth" v-model="formPatient.sexAtBirth"
+                  placeholder="F | M">
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary">Add patient</button>
           </form>
+
+          <!-- Publish container to Microsoft Azure  -->
+          <!-- Create a cloud db on Amazon AWS -->
 
           <br><br>
           <h2>Patient details</h2>
