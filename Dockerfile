@@ -3,7 +3,7 @@ FROM php:7.3.8-apache
 # in that image are in a different place. This is easier in the long run.
 # This is a docker image for PHP
 
-LABEL maintainer="Tom Gregory"
+LABEL maintainer="Arpita Bali"
 
 COPY ./app /srv/app
 # Copy my app folder to /srv/app
