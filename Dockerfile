@@ -1,8 +1,9 @@
 FROM php:7.3.8-apache
 # We could use `httpd:2.4`, as we don't need PHP right now, but the config files
 # in that image are in a different place. This is easier in the long run.
+# This is a docker image for PHP
 
-LABEL maintainer="Tom Gregory"
+LABEL maintainer="Arpita Bali"
 
 # Install Composer  (http://getcomposer.org)
 COPY docker/composer-installer.sh /usr/local/bin/composer-installer
@@ -20,6 +21,7 @@ RUN apt-get -yqq update \
     && composer --version
 
 COPY ./app /srv/app
+# Copy my app folder to /srv/app
 
 # Run Composer to install dependancies
 WORKDIR /srv/app/
