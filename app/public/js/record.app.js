@@ -1,35 +1,38 @@
-var patientRecordApp = new Vue({
-  el: '#patientRecordApp',
+var patientRecordsApp = new Vue({
+  el: '#patientRecordsApp',
   data: {
     patients: [],
-    formPatient: {
-      firstName: "",
-      lastName: "",
-      dob: "",
-      sexAtBirth: ""
-    }
+    recordPatient: {}
   },
   methods: {
     fetchPatients() {
-      fetch('dummy.php')
-        .then(response => response.json())
-        .then(json => { patientRecordApp.patients = json });
+      fetch('api/patients.php')
+      .then(response => response.json())
+      .then(json => { patientRecordsApp.patients = json })
     },
-    handleCreatePatientRecord() {
-      // fetch(url, {method:"post", data:thisFormPatient}
-      // This is what should happen when a data store is added to 
-      // project-triage. Then, we want to display it:
-      this.patients.push(this.formPatient);
-      this.formPatient = {
-                            firstName: "",
-                            lastName: "",
-                            dob: "",
-                            sexAtBirth: ""
-                        };
+    handleSubmit(event) {
+      // fetch(url, {
+      //   method: 'post',
+      //   data: this.recordPatient
+      // })
+      // .then( ... )
+      this.patients.push( this.recordPatient );
+      this.handleReset();
+    },
+    handleReset() {
+      this.recordPatient = {
+        firstName: '',
+        lastName: '',
+        dob: '',
+        sexAtBirth: ''
+      }
+    },
+    handleRowClick(patient) {
+      patientTriageApp.patient = patient;
     }
-  },
-  created: function () {
+  }, // end methods
+  created() {
+    this.handleReset();
     this.fetchPatients();
   }
-
-})
+});
