@@ -13,3 +13,6 @@ INSERT INTO Patient (patientGuid, firstName, lastName, dob, sexAtBirth) VALUES
 ("SOME-REALLY-SHORT-5678", "Vish", "Balasubramanian", "1950-12-15",  "M"),
 ("SOME-UNIQUE-ABCDE1", "J", "Doe", "1950-00-00",  ""),
 ("SOME-DUMMY-DATA", "Pepper", "Potts", "1990-01-31",  "F");
+
+
+--  Create all the other tables

@@ -1,9 +1,9 @@
 {
-    "name": "iu-msis/project-triage",
+    "name": "baliarpita/project-triage",
     "description": "An in-class example project",
     "license": "private",
     "authors": [{
-        "name": "Tom Gregory"
+        "name": "Arpita Bali"
     }],
     "require": {},
     "autoload": {
