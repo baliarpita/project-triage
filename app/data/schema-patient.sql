@@ -14,9 +14,6 @@ INSERT INTO Patient (patientGuid, firstName, lastName, dob, sexAtBirth) VALUES
 ("SOME-UNIQUE-ABCDE1", "J", "Doe", "1950-00-00",  ""),
 ("SOME-DUMMY-DATA", "Pepper", "Potts", "1990-01-31",  "F");
 
-
---  Create all the other tables
-
 CREATE TABLE PatientVisit (
     visitId INTEGER PRIMARY KEY AUTO_INCREMENT,
     patientGuid VARCHAR(64) UNIQUE,
