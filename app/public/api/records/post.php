@@ -1,8 +1,9 @@
 <?php
 
-use Ramsey\Uuid\Uuid;
-$guid = Uuid::uuid4()->toString();
+// use Ramsey\Uuid\Uuid;
+// $guid = Uuid::uuid4()->toString();
 // Step 1: Get a datase connection from our help class
+$guid='122344555566666666';
 $db = DbConnection::getConnection();
 
 // -> for instance
@@ -10,7 +11,7 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare(
-    'INSERT INTO PatientVisit (patientGuid, firstName, lastName, dob, sexAtBirth)
+    'INSERT INTO Patient (patientGuid, firstName, lastName, dob, sexAtBirth)
     VALUES (?, ? ,?, ?, ?)'
     );
 

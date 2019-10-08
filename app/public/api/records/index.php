@@ -7,6 +7,17 @@ $db = DbConnection::getConnection();
 // :: is for static/factory methods in class
 
 // Step 2: Create & run the query
+if (isset($_GET['guid'])) {
+    $stmt = $db->prepare(
+        'SELECT * FROM Patient
+        WHERE patientGUID =?'
+    );
+    $stmt->execute([$_GET['guid']]);
+} else {
+    $stmt = $db->prepare('SELECT * FROM Patient');
+    $stmt->execute();
+}
+
 $stmt = $db->prepare('SELECT * FROM Patient');
 $stmt->execute();
 $patients = $stmt->fetchAll();
