@@ -4,7 +4,7 @@ var patientRecordsApp = new Vue({
     patients: [],
     recordPatient: {},
     filter: {
-      sab:''
+      sab: ''
     }
   },
   methods: {
