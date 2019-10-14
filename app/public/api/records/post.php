@@ -1,30 +1,27 @@
 <?php
 
-// use Ramsey\Uuid\Uuid;
-// $guid = Uuid::uuid4()->toString();
-// Step 1: Get a datase connection from our help class
-$guid='122344555566666666';
-$db = DbConnection::getConnection();
+// Step 0: Validation
+use Ramsey\Uuid\Uuid;
+$guid = Uuid::uuid4()->toString(); // i.e. 25769c6c-d34d-4bfe-ba98-e0ee856f3e7a
 
-// -> for instance
-// :: is for static/factory methods in class
+// Step 1: Get a datase connection from our help class
+$db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare(
-    'INSERT INTO Patient (patientGuid, firstName, lastName, dob, sexAtBirth)
-    VALUES (?, ? ,?, ?, ?)'
-    );
+  'INSERT INTO Patient
+    (patientGuid, firstName, lastName, dob, sexAtBirth)
+  VALUES (?, ?, ?, ?, ?)'
+);
 
-// SQL injection prevention
 $stmt->execute([
-    $guid,
-    $_POST['firstName'],
-    $_POST['lastName'],
-    $_POST['dob'],
-    $_POST['sexAtBirth']
+  $guid,
+  $_POST['firstName'],
+  $_POST['lastName'],
+  $_POST['dob'],
+  $_POST['sexAtBirth']
 ]);
 
-// Step 3: Output
-// Redirect to this API
+// Step 4: Output
 header('HTTP/1.1 303 See Other');
 header('Location: ../records/?guid='.$guid);
